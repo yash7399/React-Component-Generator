@@ -1,0 +1,1 @@
+node_modules/ .env *.log dist/ build/ package-lock.json .eslintcache .DS_Store

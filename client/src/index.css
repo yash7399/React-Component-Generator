@@ -1,0 +1,126 @@
+/* src/index.css */
+
+/* 1. Import Font & Define Theme Variables */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  --background: #111;
+  --background-light: #1d1d1d;
+  --text-primary: #f0f0f0;
+  --text-secondary: #b3b3b3;
+  --primary-accent: #6a0dad;
+  --border-color: #333;
+}
+
+/* 2. Global Reset & Body Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+/* 3. Global Container for Centered Content */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* 4. Basic Form Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--primary-accent);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Add these new styles to the end of src/index.css */
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 350px 1fr; /* Sidebar and main content */
+  grid-template-rows: 60% 40%; /* Preview and Code panels */
+  height: calc(100vh - 70px); /* Full height minus navbar */
+  grid-template-areas:
+    "chat preview"
+    "chat code";
+}
+
+.chat-panel { grid-area: chat; }
+.preview-panel { grid-area: preview; }
+.code-panel { grid-area: code; }
+
+.panel {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.chat-panel {
+  border-right: 1px solid var(--border-color);
+}
+.code-panel {
+  background-color: var(--background-light);
+  border-top: 1px solid var(--border-color);
+}
+.preview-panel {
+  position: relative; /* For the loading spinner overlay */
+}
+
+/* A simple loading spinner */
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid var(--primary-accent);
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
