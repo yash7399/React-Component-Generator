@@ -1,7 +1,7 @@
 // src/services/sessionService.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/sessions';
+const API_URL = 'https://react-component-generator-server.onrender.com/api/sessions';
 
 // Get all sessions for the logged-in user
 const getSessions = () => {
