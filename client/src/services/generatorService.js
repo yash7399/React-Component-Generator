@@ -1,7 +1,7 @@
 // src/services/generatorService.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/generate'; // Your backend URL
+const API_URL = 'https://react-component-generator-server.onrender.com/api/generate'; // Your backend URL
 
 const generate = (prompt) => {
   // Get the auth token from localStorage
